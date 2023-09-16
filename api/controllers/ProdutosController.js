@@ -132,6 +132,41 @@ class ProdutosController
         }
     }
 
+    static async listarOrdemMaisRelevantes(req, res)
+    {
+        try
+        {
+            const produtosMaisRelevantes = await database.Produtos.findAll(
+                {
+                    order:[['quantidade_vendas', 'DESC']]
+                }
+            )
+            return res.status(200).json(produtosMaisRelevantes)
+        }
+        catch (error)
+        {
+            // se der errado, o erro aparece na própria requisição (postman)
+            return res.status(500).json(error.message)
+        }
+    }
+
+    static async listarOrdemMenosRelevantes(req, res)
+    {
+        try
+        {
+            const produtosMaisRelevantes = await database.Produtos.findAll(
+                {
+                    order:[['quantidade_vendas', 'ASC']]
+                }
+            )
+            return res.status(200).json(produtosMaisRelevantes)
+        }
+        catch (error)
+        {
+            // se der errado, o erro aparece na própria requisição (postman)
+            return res.status(500).json(error.message)
+        }
+    }
 }
 
 

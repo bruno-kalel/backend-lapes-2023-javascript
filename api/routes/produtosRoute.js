@@ -29,5 +29,11 @@ router.delete('/produtos/:id', ProdutoController.removerProduto)
 // BUSCAR PRODUTO POR INTERVALO DE PRECO
 router.get('/produtos/:precoMinimo/:precoMaximo', ProdutoController.buscarPorIntervaloPreco)
 
+// LISTAR PRODUTOS MAIS RELEVANTES
+router.get('/ordenarPorMaisRelevante', ProdutoController.listarOrdemMaisRelevantes)
+
+// LISTAR PRODUTOS MENOS RELEVANTES
+router.get('/ordenarPorMenosRelevante', ProdutoController.listarOrdemMenosRelevantes)
+
 // exportar tudo para ficar disponível no resto do código, para as rotas ficarem disponíveis
 module.exports = router
