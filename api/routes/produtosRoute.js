@@ -15,9 +15,13 @@ router.get('/produtos', ProdutoController.listarTodosOsProdutos)
 // id indica que terá um parâmetro
 router.get('/produtos/:id', ProdutoController.listaProdutoEspecifico)
 
-// CRIAR UM PRODUTO NOVO
+// ADICIONAR UM PRODUTO NOVO
 // agora é post para criar um registro novo
 router.post('/produtos', ProdutoController.adicionarProduto)
+
+// REMOVER UM PRODUTO
+// agora é delete para remover um registro existente
+router.delete('/produtos/:id', ProdutoController.removerProduto)
 
 // exportar tudo para ficar disponível no resto do código, para as rotas ficarem disponíveis
 module.exports = router

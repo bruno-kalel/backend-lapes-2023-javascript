@@ -62,6 +62,30 @@ class ProdutosController
             return res.status(500).json(error.message)
         }
     }
+
+    static async removerProduto(req, res)
+    {
+        const { id } = req.params
+        try
+        {
+            await database.Produtos.destroy(
+                {
+                    where:
+                        {
+                            // primeiro id daqui é a coluna, segundo id na linha é o valor que vai com a url (postman)
+                            id:Number(id)
+                        }
+                }
+            )
+            return res.status(200).json({mensagem: `id ${id} deletado`}
+            )
+        }
+        catch (error)
+        {
+            // se der errado, o erro aparece na própria requisição (postman)
+            return res.status(500).json(error.message)
+        }
+    }
 }
 
 
