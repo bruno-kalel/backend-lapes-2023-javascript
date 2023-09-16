@@ -1,5 +1,6 @@
 // importar biblioteca que vai gerir os formatos dos dados
 const bodyParser = require('body-parser')
+const usuarios = require('./usuariosRoute')
 
 module.exports = app =>
 {
@@ -15,5 +16,7 @@ module.exports = app =>
         .send({mensagem: 'boas-vindas'}))
 
     app.use(bodyParser.json())
+    app.use(usuarios)
+    // teste, segundo teste
     app.get('/', (req, res) => res.send('aqui'))
 }
