@@ -2,19 +2,19 @@
 // é preciso dizer onde estão os modelos
 const database = require('../models')
 
-class UsuariosController
+class ProdutosController
 {
     // static para ser chamado sem a necessidade de uma nova instância
     // async para esperar resolver cada método interno para devolver
-    static async listarTodosOsUsuarios(req, res)
+    static async listarTodosOsProdutos(req, res)
     {
         try
         {
             // método findAll() do Sequelize consulta tabela e traz tudo
             // o que seria select * from blá blá blá vira findAll(), te amo Sequelize
             // sendo assim, única coisa necessária é tratar os dados
-            const todosOsUsuarios = await database.Usuarios.findAll()
-            return res.status(200).json(todosOsUsuarios)
+            const todosOsUProdutos = await database.Produtos.findAll()
+            return res.status(200).json(todosOsUProdutos)
         }
         catch (error)
         {
@@ -23,14 +23,14 @@ class UsuariosController
         }
     }
 
-    static async listaUsuarioEspecifico(req, res)
+    static async listaProdutoEspecifico(req, res)
     {
         const { id } = req.params
         try
         {
             // método findOne() do Sequelize consulta tabela e traz uma entrada específica
             // SELECT * FROM tabela WHERE id = 4; vira findAll() com parâmetro, te amo Sequelize
-            const usuarioEspecifico = await database.Usuarios.findOne(
+            const produtoEspecifico = await database.Produtos.findOne(
                 {
                     where:
                         {
@@ -39,7 +39,7 @@ class UsuariosController
                         }
                 }
             )
-            return res.status(200).json(usuarioEspecifico)
+            return res.status(200).json(produtoEspecifico)
         }
         catch (error)
         {
@@ -52,4 +52,4 @@ class UsuariosController
 
 
 // deixar tudo disponível para ser usado em outros lugares do código
-module.exports = UsuariosController
+module.exports = ProdutosController
