@@ -16,10 +16,10 @@ module.exports = (sequelize, DataTypes) => {
   Produtos.init({
     nome: DataTypes.STRING,
     categoria: DataTypes.STRING,
-    preco: DataTypes.DOUBLE
+    preco: DataTypes.FLOAT
   }, {
     sequelize,
-    modelName: 'Usuarios',
+    modelName: 'Produtos',
   });
-  return Usuarios;
+  return Produtos;
 };
