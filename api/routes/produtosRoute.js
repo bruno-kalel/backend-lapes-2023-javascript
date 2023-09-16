@@ -23,5 +23,7 @@ router.post('/produtos', ProdutoController.adicionarProduto)
 // agora é delete para remover um registro existente
 router.delete('/produtos/:id', ProdutoController.removerProduto)
 
+router.get('/produtos/:precoMinimo/:precoMaximo', ProdutoController.buscarPorIntervaloPreco)
+
 // exportar tudo para ficar disponível no resto do código, para as rotas ficarem disponíveis
 module.exports = router

@@ -1,6 +1,8 @@
 // controlador vai se conectar com o modelo
 // é preciso dizer onde estão os modelos
 const database = require('../models')
+const Sequelize = require('sequelize');
+const { Op } = Sequelize;
 
 class ProdutosController
 {
@@ -79,6 +81,33 @@ class ProdutosController
             )
             return res.status(200).json({mensagem: `id ${id} deletado`}
             )
+        }
+        catch (error)
+        {
+            // se der errado, o erro aparece na própria requisição (postman)
+            return res.status(500).json(error.message)
+        }
+    }
+
+    static async buscarPorIntervaloPreco(req, res)
+    {
+        const { precoMinimo } = req.params
+        const { precoMaximo } = req.params
+
+        try
+        {
+            const listaDeProdutos = await database.Produtos.findAll(
+                {
+                    where:
+                        {
+                            preco:
+                                {
+                                    [Op.between]: [precoMinimo, precoMaximo]
+                                }
+                        }
+                }
+            )
+            return res.status(200).json(listaDeProdutos)
         }
         catch (error)
         {
