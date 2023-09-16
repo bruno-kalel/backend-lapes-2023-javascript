@@ -10,10 +10,10 @@ const router = Router()
 // rota get para listar Produtos
 router.get('/produtos', ProdutoController.listarTodosOsProdutos)
 
-// LISTAR PRODUTO ESPECÍFICO POR ID
-// rota get para pegar Produto Específico
-// id indica que terá um parâmetro
-router.get('/produtos/:id', ProdutoController.listaProdutoEspecifico)
+// ENCONTRAR UM PRODUTO POR NOME
+// rota get para pegar Produtos Específicos,
+// nome indica que terá um parâmetro
+router.get('/produtos/:nome', ProdutoController.buscarProdutoPorNome)
 
 // ADICIONAR UM PRODUTO NOVO
 // agora é post para criar um registro novo

@@ -23,19 +23,19 @@ class ProdutosController
         }
     }
 
-    static async listaProdutoEspecifico(req, res)
+    static async buscarProdutoPorNome(req, res)
     {
-        const { id } = req.params
+        const { nome } = req.params
         try
         {
-            // método findOne() do Sequelize consulta tabela e traz uma entrada específica
-            // SELECT * FROM tabela WHERE id = 4; vira findAll() com parâmetro, te amo Sequelize
-            const produtoEspecifico = await database.Produtos.findOne(
+            // método findAll() do Sequelize consulta tabela
+            // SELECT * FROM tabela WHERE nome = nome1; vira findAll() com parâmetro, te amo Sequelize
+            const produtoEspecifico = await database.Produtos.findAll(
                 {
                     where:
                         {
                             // primeiro id daqui é a coluna, segundo id na linha é o valor que vai com a url (postman)
-                            id:Number(id)
+                            nome:String(nome)
                         }
                 }
             )
@@ -86,6 +86,7 @@ class ProdutosController
             return res.status(500).json(error.message)
         }
     }
+
 }
 
 
