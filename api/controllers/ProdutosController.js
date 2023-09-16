@@ -47,6 +47,21 @@ class ProdutosController
             return res.status(500).json(error.message)
         }
     }
+
+    static async adicionarProduto(req, res)
+    {
+        const novoProduto = req.body
+        try
+        {
+            const novoProdutoCriado = await database.Produtos.create(novoProduto)
+            return res.status(200).json(novoProdutoCriado)
+        }
+        catch (error)
+        {
+            // se der errado, o erro aparece na própria requisição (postman)
+            return res.status(500).json(error.message)
+        }
+    }
 }
 
 

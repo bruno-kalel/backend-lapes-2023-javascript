@@ -6,12 +6,18 @@ const ProdutoController = require('../controllers/ProdutosController')
 // iniciar o conjunto de métodos do express que foi importado
 const router = Router()
 
-// rota get pra pegar Produtos
+// LISTAR TODOS OS PRODUTOS
+// rota get para listar Produtos
 router.get('/produtos', ProdutoController.listarTodosOsProdutos)
 
+// LISTAR PRODUTO ESPECÍFICO POR ID
 // rota get para pegar Produto Específico
-// :id indica que terá um parâmetro
+// id indica que terá um parâmetro
 router.get('/produtos/:id', ProdutoController.listaProdutoEspecifico)
+
+// CRIAR UM PRODUTO NOVO
+// agora é post para criar um registro novo
+router.post('/produtos', ProdutoController.adicionarProduto)
 
 // exportar tudo para ficar disponível no resto do código, para as rotas ficarem disponíveis
 module.exports = router
