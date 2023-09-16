@@ -22,7 +22,34 @@ class UsuariosController
             return res.status(500).json(error.message)
         }
     }
+
+    static async listaUsuarioEspecifico(req, res)
+    {
+        const { id } = req.params
+        try
+        {
+            // método findOne() do Sequelize consulta tabela e traz uma entrada específica
+            // SELECT * FROM tabela WHERE id = 4; vira findAll() com parâmetro, te amo Sequelize
+            const usuarioEspecifico = await database.Usuarios.findOne(
+                {
+                    where:
+                        {
+                            // primeiro id daqui é a coluna, segundo id na linha é o valor que vai com a url (postman)
+                            id:Number(id)
+                        }
+                }
+            )
+            return res.status(200).json(usuarioEspecifico)
+        }
+        catch (error)
+        {
+            // se der errado, o erro aparece na própria requisição (postman)
+            return res.status(500).json(error.message)
+        }
+    }
 }
+
+
 
 // deixar tudo disponível para ser usado em outros lugares do código
 module.exports = UsuariosController
