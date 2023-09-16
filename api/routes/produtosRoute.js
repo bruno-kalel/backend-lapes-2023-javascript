@@ -15,14 +15,18 @@ router.get('/produtos', ProdutoController.listarTodosOsProdutos)
 // nome indica que terá um parâmetro
 router.get('/produtos/:nome', ProdutoController.buscarProdutoPorNome)
 
+// ENCONTRAR UM PRODUTO POR CATEGORIA
+router.get('/produtos/categoria/:categoria', ProdutoController.buscarProdutoPorCategoria)
+
 // ADICIONAR UM PRODUTO NOVO
 // agora é post para criar um registro novo
-router.post('/produtos', ProdutoController.adicionarProduto)
+router.get('/produtos', ProdutoController.adicionarProduto)
 
 // REMOVER UM PRODUTO
 // agora é delete para remover um registro existente
 router.delete('/produtos/:id', ProdutoController.removerProduto)
 
+// BUSCAR PRODUTO POR INTERVALO DE PRECO
 router.get('/produtos/:precoMinimo/:precoMaximo', ProdutoController.buscarPorIntervaloPreco)
 
 // exportar tudo para ficar disponível no resto do código, para as rotas ficarem disponíveis

@@ -50,6 +50,28 @@ class ProdutosController
         }
     }
 
+    static async buscarProdutoPorCategoria(req, res)
+    {
+        const { categoria } = req.params
+        try
+        {
+            const produtosPorCategoria = await database.Produtos.findAll(
+                {
+                    where:
+                        {
+                            categoria:String(categoria)
+                        }
+                }
+            )
+            return res.status(200).json(produtosPorCategoria)
+        }
+        catch (error)
+        {
+            // se der errado, o erro aparece na própria requisição (postman)
+            return res.status(500).json(error.message)
+        }
+    }
+
     static async adicionarProduto(req, res)
     {
         const novoProduto = req.body
@@ -98,13 +120,7 @@ class ProdutosController
         {
             const listaDeProdutos = await database.Produtos.findAll(
                 {
-                    where:
-                        {
-                            preco:
-                                {
-                                    [Op.between]: [precoMinimo, precoMaximo]
-                                }
-                        }
+                    where: {preco: {[Op.between]: [precoMinimo, precoMaximo]}}
                 }
             )
             return res.status(200).json(listaDeProdutos)
