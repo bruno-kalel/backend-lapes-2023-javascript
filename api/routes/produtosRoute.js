@@ -20,7 +20,7 @@ router.get('/produtos/categoria/:categoria', ProdutoController.buscarProdutoPorC
 
 // ADICIONAR UM PRODUTO NOVO
 // agora é post para criar um registro novo
-router.get('/produtos', ProdutoController.adicionarProduto)
+router.post('/produtos', ProdutoController.adicionarProduto)
 
 // REMOVER UM PRODUTO
 // agora é delete para remover um registro existente
