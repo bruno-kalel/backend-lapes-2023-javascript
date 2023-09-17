@@ -86,3 +86,4 @@ Controladores podem ser vistos em ./api/controllers/ProdutosControllers.js
 
 ## Tutotial de instalação
 Eu fiz tudo local (longe do ideal, eu sei), então deixei o arquivo de backup do banco na pasta backup-banco para que seja possível cloná-lo.
+Para iniciar o projeto, depois de instalar todos os node-modules (acredito que o .gitignore vá impedí-los de subirem aqui pro repositório), basta dar <u>npm run start</u> no terminal para iniciar com nodemon ou <u>node api/index.js</u> para iniciar sem.
