@@ -83,3 +83,6 @@ Disponível em ./diagramas/uml-classes.png
 ## Estrutura de pastas
 MVC (Model-View-Controller)<br>
 Controladores podem ser vistos em ./api/controllers/ProdutosControllers.js
+
+## Tutotial de instalação
+Eu fiz tudo local (longe do ideal, eu sei), então deixei o arquivo de backup do banco na pasta backup-banco para que seja possível cloná-lo.
