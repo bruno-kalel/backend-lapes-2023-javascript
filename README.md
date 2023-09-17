@@ -1,6 +1,11 @@
 # backend-lapes
 
 # Antes de tudo, uma palavrinha do autor
+O horário da criação deste repositório foi quando comecei a trabalhar no projeto e, do mesmo modo, o horário do último commit foi a hora que parei.<br>
+Sei bem que a janela disponibilizada para o desenvolvimento do projeto foi bem maior, porém foi isto que ocorreu.<br>
+Em algumas horas, fui capaz de desenvolver o que estão vendo. Tenho certeza que poderei fazer muito mais caso seja aceito na equipe!<br>
+Agradecimentos especiais ao professor Isaac por ter me recomendado buscar por ORM em um projeto anterior e, assim, ter contribuído muito ao conhecimento prévio que apliquei aqui. Podem pedir recomedações minhas pra ele!<br>
+Sem mais, desejo um bom debug! Fico à disposição para quaisquer esclarecimentos.
  
 ## O que utilizei para desenvolver este projeto
 + WebStorm 2023.2.1
